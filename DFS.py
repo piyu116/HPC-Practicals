@@ -1,0 +1,22 @@
+def dfs(graph, node, visited):
+    if node not in visited:
+        print(node, end=" ")
+        visited.add(node)
+
+        for neighbor in graph[node]:
+            dfs(graph, neighbor, visited)
+
+
+graph = {
+    0: [1, 2],
+    1: [0, 3, 4],
+    2: [0, 4],
+    3: [1],
+    4: [1, 2]
+}
+
+print("DFS Traversal:")
+dfs(graph, 0, set())
+
+#DFS Traversal:
+#0 1 3 4 2 
